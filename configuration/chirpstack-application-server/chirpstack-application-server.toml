@@ -15,7 +15,7 @@ enabled=["mqtt", "postgresql"]
 server="tcp://mosquitto:1883"
 
 [application_server.integration.postgresql]
-dsn="postgres://$POSTGRES_AS_EVENT_USERNAME:$POSTGRES_AS_EVENT_PASSWORD@$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_AS_EVENT_DATABASE?sslmode=$POSTGRES_SSLMODE"
+dsn="postgres://$POSTGRES_LORASTORE_USERNAME:$POSTGRES_LORASTORE_PASSWORD@$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_LORASTORE_DATABASE?sslmode=$POSTGRES_SSLMODE"
 
 
 [application_server.api]
