@@ -16,6 +16,8 @@ services:
     image: chirpstack/chirpstack-application-server:3
     ports:
       - 80:8080
+    volumes:
+      - ./configuration/chirpstack-application-server:/etc/chirpstack-application-server
     environment:
       - POSTGRESQL__DSN=postgres://${POSTGRES_AS_USERNAME}:${POSTGRES_AS_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_AS_DATABASE}?sslmode=${POSTGRES_SSLMODE}
       - REDIS__URL=redis://redis:6379
