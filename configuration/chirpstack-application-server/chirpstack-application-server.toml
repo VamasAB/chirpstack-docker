@@ -8,6 +8,7 @@ dsn="postgres://$POSTGRES_AS_USERNAME:$POSTGRES_AS_PASSWORD@$POSTGRES_HOST:$POST
 url="redis://redis:6379"
 
 [application_server.integration]
+marshaler="json"
 # Enabled integrations.
 enabled=["mqtt","postgresql"]
 
