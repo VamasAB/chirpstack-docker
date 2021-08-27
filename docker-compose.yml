@@ -7,6 +7,8 @@ services:
       - ./configuration/chirpstack-network-server:/etc/chirpstack-network-server
     depends_on:
       - mosquitto
+    env_file:
+      - ./.env
 
   chirpstack-application-server:
     image: chirpstack/chirpstack-application-server:3
@@ -16,6 +18,8 @@ services:
       - ./configuration/chirpstack-application-server:/etc/chirpstack-application-server
     depends_on:
       - chirpstack-network-server
+    env_file:
+      - ./.env
 
   chirpstack-gateway-bridge:
     image: chirpstack/chirpstack-gateway-bridge:3
@@ -23,6 +27,8 @@ services:
       - 1700:1700/udp
     volumes:
       - ./configuration/chirpstack-gateway-bridge:/etc/chirpstack-gateway-bridge
+    environment:
+      - INTEGRATION__MQTT__AUTH__GENERIC__SERVERS=tcp://mosquitto:1883
     depends_on: 
       - mosquitto
 
