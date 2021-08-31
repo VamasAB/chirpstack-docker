@@ -7,8 +7,6 @@ services:
       - ./configuration/chirpstack-network-server:/etc/chirpstack-network-server
     depends_on:
       - mosquitto
-    env_file:
-      - ./.env
 
   chirpstack-application-server:
     image: chirpstack/chirpstack-application-server:3
@@ -18,8 +16,6 @@ services:
       - ./configuration/chirpstack-application-server:/etc/chirpstack-application-server
     depends_on:
       - chirpstack-network-server
-    env_file:
-      - ./.env
 
   chirpstack-gateway-bridge:
     image: chirpstack/chirpstack-gateway-bridge:3

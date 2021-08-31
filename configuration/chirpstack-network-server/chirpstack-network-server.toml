@@ -5,7 +5,7 @@
 # configuration examples.
 
 [postgresql]
-dsn="postgres://chirpstack_ns:kquFHKvoKviEsMtPxuMW3zryrYMQzQ@db-kronjuvelen-do-user-8826297-0.b.db.ondigitalocean.com:25060/chirpstack_ns?sslmode=require"
+dsn="postgres://chirpstack_ns:kquFHKvoKviEsMtPxuMW3zryrYMQzQ@10.31.2.109:5432/chirpstack_ns?sslmode=require"
 
 [redis]
 url="redis://redis:6379"
