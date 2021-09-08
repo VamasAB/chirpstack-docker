@@ -1,16 +1,10 @@
 function Decoder(bytes, fport) {
 	var decoded = {};
 	if (fport === 6) { // then its ReportDataCmd
-		if (bytes[2] === 0x00) { // version report
-			decoded.softwareversion = bytes[3];
-			decoded.hardwareversion = bytes[4];
-			decoded.datecode = bcdtonumber(bytes.slice(5, 9));
-			return decoded;
-		}
 		if ((bytes[1] === 0x95) && (bytes[2] === 0x01)) { // device type 95 (R718B)
 			decoded.battery = bytes[3] / 10;
 			decoded.temperature = ((bytes[4] << 24 >> 16) + bytes[5]) / 10;
-  	}
+        }
 	} else if (fport === 7) { // then its a ConfigureCmd response
 		if ((bytes[0] === 0x82) && (bytes[1] === 0x01)) { // R711 or R712
 			decoded.mintime = ((bytes[2] << 8) + bytes[3]);
@@ -24,6 +18,7 @@ function Decoder(bytes, fport) {
 	}
 	return decoded;
 }
+
 
 // Chirpstack decoder wrapper
 function Decode(fPort, bytes) {
